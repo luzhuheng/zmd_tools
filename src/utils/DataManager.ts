@@ -36,9 +36,6 @@ export class DataManager {
   dungeons: Dungeon[] = [];
   isLoaded = false;
 
-  private weaponCsvPath = '/src/assets/数据/武器词条.CSV';
-  private dungeonCsvPath = '/src/assets/数据/副本.CSV';
-
   constructor() {}
 
   async loadData() {
@@ -46,14 +43,10 @@ export class DataManager {
 
     try {
       // 加载武器数据
-      const weaponResponse = await fetch(this.weaponCsvPath);
-      const weaponText = await weaponResponse.text();
-      this.parseWeapons(weaponText);
+      this.parseWeapons(weaponCsvContent);
 
       // 加载副本数据
-      const dungeonResponse = await fetch(this.dungeonCsvPath);
-      const dungeonText = await dungeonResponse.text();
-      this.parseDungeons(dungeonText);
+      this.parseDungeons(dungeonCsvContent);
 
       this.isLoaded = true;
     } catch (e) {
