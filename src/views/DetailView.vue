@@ -90,13 +90,6 @@ const getSortedByProducts = (plan: FarmingPlan) => {
         <div class="flex flex-col items-center text-center space-y-2">
           <!-- 第一行：图标 + 名称 + 稀有度 + 种类 -->
           <div class="flex flex-wrap items-center justify-center gap-2">
-            <!-- 盾牌图标 -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-              class="w-6 h-6 text-gray-700">
-              <path fill-rule="evenodd"
-                d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 12c0 5.542 2.98 10.533 7.918 13.027a.75.75 0 00.664 0C15.77 22.533 18.75 17.542 18.75 12a12.74 12.74 0 00-.635-6.235.75.75 0 00-.722-.515 11.208 11.208 0 01-7.877-3.08zM12 13.25a.75.75 0 000-1.5.75.75 0 000 1.5z"
-                clip-rule="evenodd" />
-            </svg>
             <span class="text-xl font-bold text-gray-900">{{ weapon.name }}</span>
             <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full border border-gray-200">
               {{ weapon.rarity }}

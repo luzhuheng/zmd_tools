@@ -220,7 +220,11 @@ export class DataManager {
         } else {
             for (let i = 0; i < otherMains.length; i++) {
                 for (let j = i + 1; j < otherMains.length; j++) {
-                    combinations.push([otherMains[i], otherMains[j]]);
+                    const m1 = otherMains[i];
+                    const m2 = otherMains[j];
+                    if (m1 && m2) {
+                        combinations.push([m1, m2]);
+                    }
                 }
             }
         }
@@ -305,12 +309,14 @@ export class DataManager {
 
     for (let i = 0; i < allPlans.length; i++) {
         const currentPlan = allPlans[i];
+        if (!currentPlan) continue;
         const currentSet = getWeaponSet(currentPlan);
         let isSuboptimal = false;
 
         for (let j = 0; j < allPlans.length; j++) {
             if (i === j) continue;
             const otherPlan = allPlans[j];
+            if (!otherPlan) continue;
             const otherSet = getWeaponSet(otherPlan);
 
             // 如果当前方案的产物是其他方案产物的子集
