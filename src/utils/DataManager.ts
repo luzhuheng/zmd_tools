@@ -222,10 +222,6 @@ export class DataManager {
             }
         }
 
-        // 查找此副本中针对此策略的最佳组合
-        let bestStratPlan: FarmingPlan | null = null;
-        let maxStratScore = -1;
-
         // 评估每个组合
         for (const combo of combinations) {
             const currentMains = [weapon.main_stat, ...combo];
@@ -258,21 +254,16 @@ export class DataManager {
                 }
             }
             
-            if (score > maxStratScore) {
-                 maxStratScore = score;
-                 bestStratPlan = {
+            if (score > 0) {
+                 allPlans.push({
                      dungeon: dungeon.name,
                      strategy: strat.type,
                      fixed_val: strat.val,
                      selected_mains: currentMains,
                      by_products: byProducts,
                      score: score
-                 };
+                 });
             }
-        }
-
-        if (bestStratPlan) {
-            allPlans.push(bestStratPlan);
         }
       }
     }
